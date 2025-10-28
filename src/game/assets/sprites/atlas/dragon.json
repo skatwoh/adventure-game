@@ -1,0 +1,375 @@
+{
+  "frames": {
+    "dragon_idle_extra_03": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 174,
+        "h": 119
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 174,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 175,
+        "h": 119
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "dragon_idle_down_01": {
+      "frame": {
+        "x": 180,
+        "y": 2,
+        "w": 168,
+        "h": 110
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 11,
+        "w": 168,
+        "h": 110
+      },
+      "sourceSize": {
+        "w": 178,
+        "h": 133
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "dragon_walking_down_01": {
+      "frame": {
+        "x": 352,
+        "y": 2,
+        "w": 152,
+        "h": 121
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 11,
+        "w": 152,
+        "h": 121
+      },
+      "sourceSize": {
+        "w": 173,
+        "h": 139
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "dragon_idle_extra_02": {
+      "frame": {
+        "x": 180,
+        "y": 116,
+        "w": 142,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 14,
+        "y": 19,
+        "w": 142,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 168,
+        "h": 117
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "dragon_idle_extra_01": {
+      "frame": {
+        "x": 2,
+        "y": 125,
+        "w": 138,
+        "h": 95
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 14,
+        "y": 22,
+        "w": 138,
+        "h": 95
+      },
+      "sourceSize": {
+        "w": 172,
+        "h": 132
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "dragon_walking_down_02": {
+      "frame": {
+        "x": 508,
+        "y": 2,
+        "w": 130,
+        "h": 110
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 18,
+        "y": 12,
+        "w": 130,
+        "h": 110
+      },
+      "sourceSize": {
+        "w": 168,
+        "h": 131
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "dragon_idle_left_01": {
+      "frame": {
+        "x": 180,
+        "y": 2,
+        "w": 168,
+        "h": 110
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 11,
+        "w": 168,
+        "h": 110
+      },
+      "sourceSize": {
+        "w": 178,
+        "h": 133
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "dragon_idle_right_01": {
+      "frame": {
+        "x": 180,
+        "y": 2,
+        "w": 168,
+        "h": 110
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 11,
+        "w": 168,
+        "h": 110
+      },
+      "sourceSize": {
+        "w": 178,
+        "h": 133
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "dragon_idle_up_01": {
+      "frame": {
+        "x": 180,
+        "y": 2,
+        "w": 168,
+        "h": 110
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 11,
+        "w": 168,
+        "h": 110
+      },
+      "sourceSize": {
+        "w": 178,
+        "h": 133
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "dragon_walking_left_01": {
+      "frame": {
+        "x": 352,
+        "y": 2,
+        "w": 152,
+        "h": 121
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 11,
+        "w": 152,
+        "h": 121
+      },
+      "sourceSize": {
+        "w": 173,
+        "h": 139
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "dragon_walking_right_01": {
+      "frame": {
+        "x": 352,
+        "y": 2,
+        "w": 152,
+        "h": 121
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 11,
+        "w": 152,
+        "h": 121
+      },
+      "sourceSize": {
+        "w": 173,
+        "h": 139
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "dragon_walking_up_01": {
+      "frame": {
+        "x": 352,
+        "y": 2,
+        "w": 152,
+        "h": 121
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 11,
+        "w": 152,
+        "h": 121
+      },
+      "sourceSize": {
+        "w": 173,
+        "h": 139
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "dragon_walking_left_02": {
+      "frame": {
+        "x": 508,
+        "y": 2,
+        "w": 130,
+        "h": 110
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 18,
+        "y": 12,
+        "w": 130,
+        "h": 110
+      },
+      "sourceSize": {
+        "w": 168,
+        "h": 131
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "dragon_walking_right_02": {
+      "frame": {
+        "x": 508,
+        "y": 2,
+        "w": 130,
+        "h": 110
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 18,
+        "y": 12,
+        "w": 130,
+        "h": 110
+      },
+      "sourceSize": {
+        "w": 168,
+        "h": 131
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "dragon_walking_up_02": {
+      "frame": {
+        "x": 508,
+        "y": 2,
+        "w": 130,
+        "h": 110
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 18,
+        "y": 12,
+        "w": 130,
+        "h": 110
+      },
+      "sourceSize": {
+        "w": 168,
+        "h": 131
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://github.com/odrick/free-tex-packer-core",
+    "version": "0.3.5",
+    "image": "dragon.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 640,
+      "h": 222
+    },
+    "scale": 1
+  }
+}
