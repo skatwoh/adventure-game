@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/adventure-game/static/css/main.b480862d.chunk.css",
+    "main.js": "/adventure-game/static/js/main.6752fa65.chunk.js",
+    "main.js.map": "/adventure-game/static/js/main.6752fa65.chunk.js.map",
+    "runtime-main.js": "/adventure-game/static/js/runtime-main.610af72f.js",
+    "runtime-main.js.map": "/adventure-game/static/js/runtime-main.610af72f.js.map",
+    "static/js/2.ce690486.chunk.js": "/adventure-game/static/js/2.ce690486.chunk.js",
+    "static/js/2.ce690486.chunk.js.map": "/adventure-game/static/js/2.ce690486.chunk.js.map",
+    "static/js/3.db40ca8a.chunk.js": "/adventure-game/static/js/3.db40ca8a.chunk.js",
+    "static/js/3.db40ca8a.chunk.js.map": "/adventure-game/static/js/3.db40ca8a.chunk.js.map",
+    "index.html": "/adventure-game/index.html",
+    "static/css/main.b480862d.chunk.css.map": "/adventure-game/static/css/main.b480862d.chunk.css.map",
+    "static/js/2.ce690486.chunk.js.LICENSE.txt": "/adventure-game/static/js/2.ce690486.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/adventure-game/static/media/PressStart2P-Regular.c5b47093.ttf",
+    "static/media/coin.cae0d64b.png": "/adventure-game/static/media/coin.cae0d64b.png",
+    "static/media/coin.d7185127.png": "/adventure-game/static/media/coin.d7185127.png",
+    "static/media/dialog_borderbox.c5432d54.png": "/adventure-game/static/media/dialog_borderbox.c5432d54.png",
+    "static/media/dragon.8740548c.png": "/adventure-game/static/media/dragon.8740548c.png",
+    "static/media/game_logo.68dc69a1.png": "/adventure-game/static/media/game_logo.68dc69a1.png",
+    "static/media/game_over_background.21509171.png": "/adventure-game/static/media/game_over_background.21509171.png",
+    "static/media/health.b178a75b.png": "/adventure-game/static/media/health.b178a75b.png",
+    "static/media/heart.277f826b.png": "/adventure-game/static/media/heart.277f826b.png",
+    "static/media/heart_container.db75eb15.png": "/adventure-game/static/media/heart_container.db75eb15.png",
+    "static/media/hero.680baedf.png": "/adventure-game/static/media/hero.680baedf.png",
+    "static/media/main_menu_background.f7d244f3.png": "/adventure-game/static/media/main_menu_background.f7d244f3.png",
+    "static/media/npc_01.85943aad.png": "/adventure-game/static/media/npc_01.85943aad.png",
+    "static/media/npc_02.128762a8.png": "/adventure-game/static/media/npc_02.128762a8.png",
+    "static/media/npc_03.88a643c6.png": "/adventure-game/static/media/npc_03.88a643c6.png",
+    "static/media/npc_04.ddb002b4.png": "/adventure-game/static/media/npc_04.ddb002b4.png",
+    "static/media/push.0c204cb5.png": "/adventure-game/static/media/push.0c204cb5.png",
+    "static/media/slime.3a5fd77a.png": "/adventure-game/static/media/slime.3a5fd77a.png",
+    "static/media/sword.4d0808f2.png": "/adventure-game/static/media/sword.4d0808f2.png",
+    "static/media/tileset.bce8ab10.png": "/adventure-game/static/media/tileset.bce8ab10.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.610af72f.js",
+    "static/js/2.ce690486.chunk.js",
+    "static/css/main.b480862d.chunk.css",
+    "static/js/main.6752fa65.chunk.js"
+  ]
+}
