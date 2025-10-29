@@ -49,6 +49,14 @@ const useStyles = makeStyles((theme) => ({
     }),
 }));
 
+/**
+ * Component menu game với điều hướng bằng phím mũi tên và chuột.
+ * Hỗ trợ nhiều vị trí hiển thị (center, left) và style pixel art.
+ * @param {Array<string>} items - Danh sách các mục menu
+ * @param {('center'|'left')} position - Vị trí hiển thị menu
+ * @param {{width:number,height:number,multiplier:number}} gameSize - Kích thước game
+ * @param {Function} onSelected - Callback khi chọn mục menu
+ */
 const GameMenu = ({
     items,
     position = 'center',
@@ -70,6 +78,10 @@ const GameMenu = ({
 
     const [selectedItemIndex, setSelectedItemIndex] = useState(0);
 
+    /**
+     * Đăng ký sự kiện phím để điều hướng menu.
+     * Hỗ trợ mũi tên lên/xuống để chọn, Enter để xác nhận.
+     */
     useEffect(() => {
         const handleKeyPressed = (e) => {
             switch (e.code) {

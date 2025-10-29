@@ -36,6 +36,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+/**
+ * Component hiển thị số coin của hero với icon và định dạng 3 chữ số.
+ * Hiển thị màu đặc biệt khi đạt tối đa (999 coin).
+ * @param {{width:number,height:number,multiplier:number}} gameSize - Kích thước game
+ * @param {number} heroCoins - Số coin hiện tại của hero
+ */
 const HeroCoin = ({
     gameSize,
     heroCoins,

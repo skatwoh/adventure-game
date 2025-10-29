@@ -1,14 +1,28 @@
 import { Scene } from 'phaser';
 
-export default class MainMenuScene extends Scene {
+/**
+ * Scene kết thúc game: hiển thị khi hero hết máu.
+ * Cho phép người chơi chơi lại hoặc thoát về menu chính.
+ */
+export default class GameOverScene extends Scene {
+    /**
+     * Khởi tạo GameOverScene.
+     */
     constructor() {
         super('GameOverScene');
     }
 
+    /**
+     * Không cần tải thêm assets vì đã được tải trong BootScene.
+     */
     preload() {
         // TODO
     }
 
+    /**
+     * Tạo giao diện game over: background và menu chọn chơi lại/thoát.
+     * Đăng ký sự kiện để xử lý lựa chọn của người chơi.
+     */
     create() {
         // const fontSize = 24;
         const { width: gameWidth, height: gameHeight } = this.cameras.main;

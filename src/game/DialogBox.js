@@ -41,6 +41,14 @@ const useStyles = makeStyles((theme) => ({
     }),
 }));
 
+/**
+ * Component hộp thoại hiển thị cuộc trò chuyện với NPC hoặc vật phẩm.
+ * Hỗ trợ hiệu ứng gõ từng ký tự và điều hướng bằng phím/chuột.
+ * @param {Array<{action:string,message:string}>} messages - Danh sách tin nhắn
+ * @param {string} characterName - Tên nhân vật đang nói
+ * @param {Function} onDone - Callback khi kết thúc hộp thoại
+ * @param {{width:number,height:number,multiplier:number}} gameSize - Kích thước game
+ */
 const DialogBox = ({
     messages,
     characterName,
@@ -62,6 +70,9 @@ const DialogBox = ({
         multiplier,
     });
 
+    /**
+     * Xử lý click/Enter để chuyển tin nhắn tiếp theo hoặc kết thúc hộp thoại.
+     */
     const handleClick = useCallback(() => {
         if (messageEnded) {
             setMessageEnded(false);
@@ -78,6 +89,10 @@ const DialogBox = ({
         }
     }, [currentMessage, messageEnded, messages.length, onDone]);
 
+    /**
+     * Đăng ký sự kiện phím để điều khiển hộp thoại.
+     * Hỗ trợ Enter, Space, Escape để chuyển tin nhắn.
+     */
     useEffect(() => {
         const handleKeyPressed = (e) => {
             if (['Enter', 'Space', 'Escape'].includes(e.code)) {

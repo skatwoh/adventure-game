@@ -33,6 +33,12 @@ const useStyles = makeStyles((theme) => ({
     }),
 }));
 
+/**
+ * Component hiển thị thanh máu của hero với các trạng thái full/half/empty.
+ * Mỗi trái tim đại diện cho 20 HP, hiển thị theo sprite sheet.
+ * @param {{width:number,height:number,multiplier:number}} gameSize - Kích thước game
+ * @param {Array<'full'|'half'|'empty'>} healthStates - Trạng thái của từng trái tim
+ */
 const HeroHealth = ({
     gameSize,
     healthStates,

@@ -22,10 +22,20 @@ export default class GameScene extends Scene {
     isTeleporting = false;
     isAttacking = false;
 
+    /**
+     * Khởi tạo dữ liệu ban đầu cho Scene.
+     * - Truyền vào trạng thái hero và map cần tải.
+     * @param {object} data - Dữ liệu từ scene trước (heroStatus, mapKey, ...)
+     */
     init(data) {
         this.initData = data;
     }
 
+    /**
+     * Tính toán vị trí của hero trước khi dịch chuyển (teleport) để quay lại đúng ô phía sau.
+     * - Dựa trên hướng nhìn hiện tại của hero.
+     * @returns {{x:number,y:number}} tọa độ lưới trước khi dịch chuyển
+     */
     calculatePreviousTeleportPosition() {
         const currentPosition = this.gridEngine.getPosition('hero');
         const facingDirection = this.gridEngine.getFacingDirection('hero');
@@ -68,6 +78,13 @@ export default class GameScene extends Scene {
         }
     }
 
+    /**
+     * Lọc và sắp xếp danh sách frame theo quy ước đặt tên (assetKey_animation_xx).
+     * Dùng để tạo hoạt ảnh theo thứ tự đúng.
+     * @param {string} assetKey - key của sprite/atlas
+     * @param {string} animation - tên nhóm hoạt ảnh (idle/walking/attack/...)
+     * @returns {Array} danh sách frame đã sắp xếp
+     */
     getFramesForAnimation(assetKey, animation) {
         return this.anims.generateFrameNames(assetKey)
             .filter((frame) => {
@@ -81,6 +98,11 @@ export default class GameScene extends Scene {
             .sort((a, b) => (a.frame < b.frame ? -1 : 1));
     }
 
+    /**
+     * Tạo hoạt ảnh di chuyển cho nhân vật (lên/phải/xuống/trái).
+     * @param {string} assetKey - key của sprite nhân vật
+     * @param {string} animationName - ví dụ: walking_up
+     */
     createPlayerWalkingAnimation(assetKey, animationName) {
         this.anims.create({
             key: `${assetKey}_${animationName}`,
@@ -95,6 +117,11 @@ export default class GameScene extends Scene {
         });
     }
 
+    /**
+     * Tạo hoạt ảnh tấn công cho nhân vật theo hướng.
+     * @param {string} assetKey - key của sprite nhân vật
+     * @param {string} animationName - ví dụ: attack_up
+     */
     createPlayerAttackAnimation(assetKey, animationName) {
         this.anims.create({
             key: `${assetKey}_${animationName}`,
@@ -111,6 +138,12 @@ export default class GameScene extends Scene {
         });
     }
 
+    /**
+     * Lấy frame dừng (idle) tương ứng với hướng nhìn.
+     * @param {('up'|'right'|'down'|'left')} direction - hướng nhìn
+     * @param {string} spriteKey - key sprite
+     * @returns {string|null} tên frame idle
+     */
     getStopFrame(direction, spriteKey) {
         switch (direction) {
             case 'up':
@@ -126,6 +159,11 @@ export default class GameScene extends Scene {
         }
     }
 
+    /**
+     * Lấy hướng đối diện với hướng hiện tại.
+     * @param {('up'|'right'|'down'|'left')} direction
+     * @returns {('up'|'right'|'down'|'left')|null}
+     */
     getOppositeDirection(direction) {
         switch (direction) {
             case 'up':
@@ -141,6 +179,10 @@ export default class GameScene extends Scene {
         }
     }
 
+    /**
+     * Tính vị trí phía sau (back) dựa trên hướng nhìn và vị trí hiện tại.
+     * Hữu ích cho AI địch đuổi theo sau lưng hero.
+     */
     getBackPosition(facingDirection, position) {
         switch (facingDirection) {
             case 'up':
@@ -168,6 +210,11 @@ export default class GameScene extends Scene {
         }
     }
 
+    /**
+     * Parse dữ liệu teleport từ Tiled (định dạng: mapKey:x,y).
+     * @param {string} data - chuỗi từ Tiled property
+     * @returns {{mapKey:string,x:number,y:number}}
+     */
     extractTeleportDataFromTiled(data) {
         const [mapKey, position] = data.trim().split(':');
         const [x, y] = position.split(',');
@@ -179,6 +226,11 @@ export default class GameScene extends Scene {
         };
     }
 
+    /**
+     * Parse dữ liệu NPC từ Tiled (định dạng: npcKey:movementType;delay;area;direction).
+     * @param {string} data
+     * @returns {{npcKey:string,movementType:string,facingDirection:string,delay:number,area:number}}
+     */
     extractNpcDataFromTiled(data) {
         const [npcKey, config] = data.trim().split(':');
         const [movementType, delay, area, direction] = config.split(';');
@@ -192,6 +244,11 @@ export default class GameScene extends Scene {
         };
     }
 
+    /**
+     * Xác định trạng thái tim (full/half/empty) theo số máu hiện tại.
+     * @param {number} health
+     * @returns {('full'|'half'|'empty')}
+     */
     calculateHeroHealthState(health) {
         if (health > 10) {
             return 'full';
@@ -204,6 +261,10 @@ export default class GameScene extends Scene {
         return 'empty';
     }
 
+    /**
+     * Tính danh sách trạng thái tim cho UI theo số máu tối đa và hiện tại.
+     * @returns {Array<'full'|'half'|'empty'>}
+     */
     calculateHeroHealthStates() {
         return Array.from({ length: this.heroSprite.maxHealth / 20 })
             .fill(null).map(
@@ -213,6 +274,10 @@ export default class GameScene extends Scene {
             );
     }
 
+    /**
+     * Cập nhật UI thanh máu qua CustomEvent 'hero-health'.
+     * @param {Array<'full'|'half'|'empty'>} healthStates
+     */
     updateHeroHealthUi(healthStates) {
         const customEvent = new CustomEvent('hero-health', {
             detail: {
@@ -223,6 +288,10 @@ export default class GameScene extends Scene {
         window.dispatchEvent(customEvent);
     }
 
+    /**
+     * Cập nhật UI số coin qua CustomEvent 'hero-coin'.
+     * @param {number|null} heroCoins - null để ẩn UI khi game over
+     */
     updateHeroCoinUi(heroCoins) {
         const customEvent = new CustomEvent('hero-coin', {
             detail: {
@@ -233,6 +302,9 @@ export default class GameScene extends Scene {
         window.dispatchEvent(customEvent);
     }
 
+    /**
+     * Lấy loài của kẻ địch từ kiểu enemyType (hiện mặc định 'slime').
+     */
     getEnemySpecies(enemyType) {
         if (enemyType.includes('slime')) {
             return 'slime';
@@ -241,6 +313,11 @@ export default class GameScene extends Scene {
         return 'slime';
     }
 
+    /**
+     * Trả về màu tint theo loại kẻ địch (đỏ/xanh lá/vàng/xanh dương).
+     * @param {string} enemyType
+     * @returns {number} mã màu hex
+     */
     getEnemyColor(enemyType) {
         if (enemyType.includes('red')) {
             return 0xF1374B;
@@ -257,6 +334,11 @@ export default class GameScene extends Scene {
         return 0x00A0DC;
     }
 
+    /**
+     * Trả về tốc độ tấn công (ms) theo loại kẻ địch.
+     * @param {string} enemyType
+     * @returns {number}
+     */
     getEnemyAttackSpeed(enemyType) {
         if (enemyType.includes('red')) {
             return 2000;
@@ -273,6 +355,11 @@ export default class GameScene extends Scene {
         return 5000;
     }
 
+    /**
+     * Ngẫu nhiên sinh vật phẩm (heart/coin) tại vị trí chỉ định khi kẻ địch chết hoặc chặt bụi.
+     * Xác suất cao hơn khi bật debug.
+     * @param {{x:number,y:number}} position - vị trí pixel
+     */
     spawnItem(position) {
         const isDebugMode = this.physics.config.debug;
         const itemChance = PhaserMath.Between(1, isDebugMode ? 2 : 5);
@@ -299,6 +386,11 @@ export default class GameScene extends Scene {
         }
     }
 
+    /**
+     * Tính vị trí viên gạch sẽ bị đẩy theo hướng hero đang nhìn.
+     * Dùng khi hero có kỹ năng đẩy và đang tấn công BOX.
+     * @returns {{x:number,y:number}} tọa độ pixel
+     */
     calculatePushTilePosition() {
         const facingDirection = this.gridEngine.getFacingDirection('hero');
         const position = this.gridEngine.getPosition('hero');
@@ -336,6 +428,10 @@ export default class GameScene extends Scene {
         }
     }
 
+    /**
+     * Hàm vòng đời chính của Scene: tạo map, hero, NPC, kẻ địch, collider, hoạt ảnh và đăng ký sự kiện.
+     * - Được gọi một lần khi scene được khởi tạo hoặc restart.
+     */
     create() {
         const camera = this.cameras.main;
         const { game } = this.sys;
@@ -1382,6 +1478,9 @@ export default class GameScene extends Scene {
         });
     }
 
+    /**
+     * Vòng lặp cập nhật mỗi frame: xử lý input, tấn công, cập nhật AI và di chuyển.
+     */
     update() {
         this.isSpaceJustDown = Input.Keyboard.JustDown(this.spaceKey);
 

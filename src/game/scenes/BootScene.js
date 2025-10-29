@@ -41,11 +41,24 @@ import npc03Image from '../assets/sprites/atlas/npc_03.png';
 import npc04Image from '../assets/sprites/atlas/npc_04.png';
 import dragonImage from '../assets/sprites/atlas/dragon.png';
 
+/**
+ * Scene khởi tạo game: tải tất cả assets (hình ảnh, âm thanh, map, sprite atlas).
+ * Hiển thị thanh tiến trình loading và chuyển sang MainMenuScene khi hoàn thành.
+ */
 export default class BootScene extends Scene {
+    /**
+     * Khởi tạo BootScene.
+     */
     constructor() {
         super('BootScene');
     }
 
+    /**
+     * Tải tất cả assets cần thiết cho game và hiển thị thanh tiến trình.
+     * - Maps: thành phố và các ngôi nhà
+     * - Sprites: hero, kẻ địch, NPC, vật phẩm
+     * - Hình ảnh: background, logo, tileset
+     */
     preload() {
         const fontSize = 16;
 
@@ -165,6 +178,9 @@ export default class BootScene extends Scene {
         this.load.image('push', pushImage);
     }
 
+    /**
+     * Chuyển sang MainMenuScene sau khi tải xong tất cả assets.
+     */
     create() {
         this.scene.start('MainMenuScene');
     }

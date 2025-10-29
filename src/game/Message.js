@@ -10,6 +10,15 @@ const useStyles = makeStyles((theme) => ({
     }),
 }));
 
+/**
+ * Component hiển thị tin nhắn với hiệu ứng gõ từng ký tự.
+ * Sử dụng react-spring để tạo animation mượt mà.
+ * @param {string} message - Nội dung tin nhắn
+ * @param {number} trail - Độ trễ giữa các ký tự (ms)
+ * @param {number} multiplier - Hệ số phóng to
+ * @param {Function} onMessageEnded - Callback khi kết thúc hiệu ứng
+ * @param {boolean} forceShowFullMessage - Bỏ qua hiệu ứng, hiển thị toàn bộ
+ */
 const Message = ({
     message = [],
     trail = 35,
@@ -18,6 +27,9 @@ const Message = ({
     forceShowFullMessage = false,
 }) => {
     const classes = useStyles({ multiplier });
+    /**
+     * Chuyển đổi chuỗi thành mảng ký tự để tạo hiệu ứng gõ.
+     */
     const items = useMemo(
         () => message.trim().split('').map((letter, index) => ({
             item: letter,

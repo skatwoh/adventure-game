@@ -1,3 +1,18 @@
+/**
+ * Component chính của game: tích hợp Phaser game engine với React UI.
+ * Quản lý giao tiếp giữa game scenes và React components thông qua CustomEvent.
+ * 
+ * Cách hoạt động:
+ * 1. Khởi tạo Phaser game với các scene (Boot, MainMenu, Game, GameOver)
+ * 2. Lắng nghe CustomEvent từ game để cập nhật UI (health, coin, dialog, menu)
+ * 3. Hiển thị React components overlay trên game canvas
+ * 
+ * Các CustomEvent được sử dụng:
+ * - 'new-dialog': Hiển thị hộp thoại với NPC/vật phẩm
+ * - 'menu-items': Hiển thị menu điều hướng
+ * - 'hero-health': Cập nhật thanh máu
+ * - 'hero-coin': Cập nhật số coin
+ */
 import {useCallback, useEffect, useState} from 'react';
 import Phaser from 'phaser';
 import GridEngine from 'grid-engine';
@@ -71,6 +86,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/**
+ * Cơ sở dữ liệu hội thoại cho các NPC và vật phẩm.
+ * Key là tên character, value là mảng các tin nhắn.
+ */
 const dialogs = {
   "npc_01": [{
     "message": "Hello",
@@ -102,6 +121,10 @@ const dialogs = {
   }]
 };
 
+/**
+ * Component App chính - điểm khởi đầu của ứng dụng game.
+ * Tích hợp Phaser game engine với React UI components.
+ */
 function App() {
   const classes = useStyles();
   const [messages, setMessages] = useState([]);
@@ -111,6 +134,10 @@ function App() {
   const [heroHealthStates, setHeroHealthStates] = useState([]);
   const [heroCoins, setHeroCoins] = useState(null);
 
+  /**
+   * Xử lý khi hộp thoại kết thúc.
+   * Gửi CustomEvent để thông báo cho game scene.
+   */
   const handleMessageIsDone = useCallback(() => {
     const customEvent = new CustomEvent(`${characterName}-dialog-finished`, {
       detail: {},
@@ -121,6 +148,10 @@ function App() {
     setCharacterName('');
   }, [characterName]);
 
+  /**
+   * Xử lý khi người chơi chọn mục menu.
+   * Gửi CustomEvent với lựa chọn để game scene xử lý.
+   */
   const handleMenuItemSelected = useCallback((selectedItem) => {
     setGameMenuItems([]);
 
@@ -132,6 +163,10 @@ function App() {
     window.dispatchEvent(customEvent);
   }, []);
 
+  /**
+   * Khởi tạo Phaser game engine với cấu hình và các scene.
+   * Chỉ chạy một lần khi component mount.
+   */
   useEffect(() => {
     const game = new Phaser.Game({
       type: Phaser.AUTO,
@@ -171,6 +206,10 @@ function App() {
     window.phaserGame = game;
   }, []);
 
+  /**
+   * Đăng ký các event listener để giao tiếp với game scenes.
+   * Lắng nghe CustomEvent từ Phaser và cập nhật React state.
+   */
   useEffect(() => {
     const dialogBoxEventListener = ({ detail }) => {
       // TODO fallback

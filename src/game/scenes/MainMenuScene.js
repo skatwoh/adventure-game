@@ -1,14 +1,28 @@
 import { Scene } from 'phaser';
 
+/**
+ * Scene menu chính: hiển thị logo game, background và menu điều hướng.
+ * Cho phép người chơi bắt đầu game mới hoặc thoát.
+ */
 export default class MainMenuScene extends Scene {
+    /**
+     * Khởi tạo MainMenuScene.
+     */
     constructor() {
         super('MainMenuScene');
     }
 
+    /**
+     * Không cần tải thêm assets vì đã được tải trong BootScene.
+     */
     preload() {
         // TODO
     }
 
+    /**
+     * Tạo giao diện menu chính: logo, background và các nút điều hướng.
+     * Đăng ký sự kiện để xử lý lựa chọn menu của người chơi.
+     */
     create() {
         const { width: gameWidth, height: gameHeight } = this.cameras.main;
 
