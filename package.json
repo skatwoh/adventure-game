@@ -1,7 +1,7 @@
 {
   "name": "adventure-game",
   "version": "0.1.0",
-  "homepage": "/",
+  "homepage": "https://skatwoh.github.io/adventure-game/",
   "private": true,
   "dependencies": {
     "@babel/core": "7.17.8",
@@ -83,7 +83,9 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "bump": "ncu -u -t minor",
-    "build:sprites": "node scripts/pack-textures.js"
+    "build:sprites": "node scripts/pack-textures.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -161,6 +163,7 @@
     ]
   },
   "devDependencies": {
-    "free-tex-packer-core": "^0.3.5"
+    "free-tex-packer-core": "^0.3.5",
+    "gh-pages": "^6.3.0"
   }
 }
