@@ -1137,6 +1137,9 @@ export default class GameScene extends Scene {
             } else {
                 const npc = npcSprites.getChildren().find((npcSprite) => npcSprite.texture.key === charId);
                 if (npc) {
+					if (charId === 'dragon') {
+						npc.setFlipX(direction === 'right');
+					}
                     npc.anims.play(`${charId}_walking_${direction}`);
                     return;
                 }
@@ -1156,6 +1159,9 @@ export default class GameScene extends Scene {
                 const npc = npcSprites.getChildren().find((npcSprite) => npcSprite.texture.key === charId);
                 if (npc) {
                     npc.anims.stop();
+					if (charId === 'dragon') {
+						npc.setFlipX(direction === 'right');
+					}
                     npc.setFrame(this.getStopFrame(direction, charId));
                     return;
                 }
@@ -1173,6 +1179,9 @@ export default class GameScene extends Scene {
             } else {
                 const npc = npcSprites.getChildren().find((npcSprite) => npcSprite.texture.key === charId);
                 if (npc) {
+					if (charId === 'dragon') {
+						npc.setFlipX(direction === 'right');
+					}
                     npc.setFrame(this.getStopFrame(direction, charId));
                     return;
                 }
